@@ -5,16 +5,17 @@ const scene = new THREE.Scene();
 
 const geometry = new THREE.OctahedronGeometry(5, 0);
 const material = new THREE.MeshPhysicalMaterial({
-  roughness: 1,
-  transmission: 1,
+  color: 0xd1b592,
+  // roughness: 1,
+  // transmission: 1,
 });
 const sphere = new THREE.Mesh(geometry, material);
 scene.add(sphere);
 // wireframe
-var geo = new THREE.WireframeGeometry(sphere.geometry); // or WireframeGeometry
-var mat = new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 2 });
-var wireframe = new THREE.LineSegments(geo, mat);
-sphere.add(wireframe);
+// var geo = new THREE.WireframeGeometry(sphere.geometry); // or WireframeGeometry
+// var mat = new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 5 });
+// var wireframe = new THREE.LineSegments(geo, mat);
+// sphere.add(wireframe);
 
 const sizes = { width: window.innerWidth, height: window.innerHeight };
 
@@ -37,7 +38,7 @@ const canvas = document.querySelector(".webgl") as HTMLCanvasElement;
 const renderer = new THREE.WebGLRenderer({ canvas });
 
 renderer.setSize(sizes.width, sizes.height);
-renderer.setPixelRatio(2);
+renderer.setPixelRatio(4);
 renderer.render(scene, camera);
 
 window.addEventListener("resize", () => {
